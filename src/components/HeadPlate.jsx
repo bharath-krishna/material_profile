@@ -1,52 +1,48 @@
-import { Avatar, Container, Grid, makeStyles } from "@material-ui/core";
+import {
+  AppBar,
+  Avatar,
+  Container,
+  Grid,
+  makeStyles,
+  Toolbar,
+  Typography,
+} from "@material-ui/core";
 import React from "react";
+import { HashLink as Link } from "react-router-hash-link";
 
-const useStyle = makeStyles({
-  headplate: (props) => ({
-    width: props.width,
-    height: props.height - 500,
-  }),
-  avatar: (props) => ({
-    width: props.avatar_width,
-    height: props.avatar_height,
-    top: -props.avatar_width / 2,
-    left: (props.width - props.avatar_height) / 2,
-  }),
-});
+const useStyle = makeStyles((theme) => ({
+  toolbar_items: {
+    color: "white",
+    fontSize: "15px",
+    flexGrow: 1,
+  },
+}));
 
 function HeadPlate() {
-  const [size, setSize] = React.useState({
-    height: window.innerHeight,
-    width: window.innerWidth,
-    avatar_width: 150,
-    avatar_height: 150,
-  });
-  const classes = useStyle(size);
-  React.useEffect(() => {
-    function handleResize() {
-      setSize({
-        ...size,
-        height: window.innerHeight,
-        width: window.innerWidth,
-      });
-    }
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
+  const classes = useStyle();
   return (
-    <Grid container>
-      <Grid item style={{ justifyContent: "center", alignItems: "center" }}>
-        <Avatar
-          src="/landscape.jpg"
-          variant="square"
-          className={classes.headplate}
-        />
-        <Avatar src="/avatar.jpeg" className={classes.avatar} />
-      </Grid>
-    </Grid>
+    <Container id="Top">
+      <AppBar>
+        <Toolbar>
+          <Link to="/#Top" className={classes.toolbar_items} smooth>
+            <Typography>Home</Typography>
+          </Link>
+          <Link to="/#WorkHistory" className={classes.toolbar_items} smooth>
+            <Typography>Work History</Typography>
+          </Link>
+          <Link to="/#SkillSet" className={classes.toolbar_items} smooth>
+            <Typography>Skill Set</Typography>
+          </Link>
+          <Link to="/#Projects" className={classes.toolbar_items} smooth>
+            <Typography>Projects</Typography>
+          </Link>
+          <Link to="/#Contact" className={classes.toolbar_items} smooth>
+            <Typography>Contact</Typography>
+          </Link>
+        </Toolbar>
+      </AppBar>
+      <Toolbar />
+    </Container>
   );
 }
 
