@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import {
+  Avatar,
   Container,
   Grid,
   makeStyles,
@@ -7,40 +8,54 @@ import {
   Typography,
 } from "@material-ui/core";
 
-const useStyle = makeStyles((theme) => ({}));
+const useStyle = makeStyles((theme) => ({
+  title: {
+    paddingTop: 200,
+    paddingBottom: 100,
+  },
+  subtitle1: {
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+}));
 
 function Profile() {
   const classes = useStyle();
   return (
-    <Fragment>
-      <Grid container justify="center" id="Profile">
-        <Container>
-          <Grid item>
-            <Typography variant="h4" display="block">
-              Bharath Krishna
-            </Typography>
-            <Typography variant="subtitle2">
-              Backend Application Engineer
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography variant="h5">Summary</Typography>
-            <Typography variant="subtitle1" align="left">
-              Application engineeer with 8+ years of experience in building
-              backend services using python and building all in one frameworks.
-              Building microservice orchestration in kubernetes. UI development
-              using React.
-            </Typography>
-          </Grid>
-        </Container>
+    <Grid container id="Profile">
+      <Grid item lg={12}>
+        <Avatar
+          src="./bharath.jpeg"
+          style={{
+            position: "absolute",
+            left: 42,
+            top: 163,
+            width: 200,
+            height: 200,
+          }}
+        />
       </Grid>
-      <Paper
-        style={{
-          width: 0,
-          height: 250,
-        }}
-      />
-    </Fragment>
+      <Grid item>
+        <Typography variant="h4" display="block" className={classes.title}>
+          Bharath Krishna
+          <Typography variant="subtitle2">
+            Backend Application Engineer
+          </Typography>
+        </Typography>
+
+        <Typography variant="h5">Summary</Typography>
+        <Typography
+          variant="subtitle1"
+          align="left"
+          className={classes.subtitle1}
+        >
+          Application engineeer with 8+ years of experience in building backend
+          services using python and building all in one frameworks. Building
+          microservice orchestration in kubernetes. UI development using React.
+        </Typography>
+      </Grid>
+    </Grid>
   );
 }
 

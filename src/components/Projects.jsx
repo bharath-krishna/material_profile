@@ -34,12 +34,6 @@ function Projects() {
         Building authentication system using keycloak and a golang service for
         handling admin activities from kubernetes apis.
       </Typography>
-      <Paper
-        style={{
-          width: 0,
-          height: 250,
-        }}
-      />
     </Container>
   );
 }

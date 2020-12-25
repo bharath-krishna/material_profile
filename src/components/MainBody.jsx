@@ -6,6 +6,7 @@ import Profile from "./Profile";
 import Projects from "./Projects";
 import SkillSet from "./SkillSet";
 import {
+  Container,
   Fab,
   makeStyles,
   Typography,
@@ -21,13 +22,13 @@ const useStyles = makeStyles((theme) => ({
     bottom: theme.spacing(2),
     right: theme.spacing(2),
   },
-  insideStyles: {
-    background: "white",
-    padding: 20,
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%,-50%)",
+  inner_container: {
+    color: "white",
+    paddingTop: 200,
+    // position: "absolute",
+    // top: "50%",
+    // left: "50%",
+    // transform: "translate(-50%,-50%)",
   },
 }));
 
@@ -76,17 +77,46 @@ function MainBody(props) {
   return (
     <div>
       <HeadPlate />
-      <Parallax bgImage={image1} strength={500}>
-        <div style={{ height: 500 }}>
-          {/* <div className={classes.insideStyles}> */}
-          <Profile />
+      <Parallax
+        bgImage="./moon_shine.jpg"
+        strength={750}
+        // bgImageStyle={{ left: 100, top: 100, opacity: "1" }}
+      >
+        <div style={{ height: 750 }}>
+          <Container style={{ color: "white" }}>
+            <Profile />
+          </Container>
           {/* </div> */}
         </div>
       </Parallax>
-      <WorkHistory />
-      <SkillSet />
-      <Projects />
-      <Contact />
+      <Parallax bgImage="./night_hills.jpeg" strength={750}>
+        <div style={{ height: 750 }}>
+          <Container style={{ color: "white" }}>
+            <WorkHistory />
+          </Container>
+        </div>
+      </Parallax>
+      <Parallax bgImage="./forest_fire.jpg" strength={750}>
+        <div style={{ height: 750 }}>
+          <Container style={{ color: "white" }}>
+            <SkillSet />
+          </Container>
+        </div>
+      </Parallax>
+      <Parallax bgImage="./distant_house.jpg" strength={750}>
+        <div style={{ height: 750 }}>
+          <Container style={{ color: "magenta" }}>
+            <Projects />
+          </Container>
+        </div>
+      </Parallax>
+      <Parallax bgImage="./dark_road.jpeg" strength={750}>
+        <div style={{ height: 750 }}>
+          <Container style={{ color: "black" }}>
+            <Contact />
+          </Container>
+        </div>
+      </Parallax>
 
       <ScrollTop {...props}>
         <Fab color="secondary" size="medium" aria-label="scroll back to top">

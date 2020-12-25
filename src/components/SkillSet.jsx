@@ -39,12 +39,6 @@ function SkillSet() {
           </Typography>
         </Grid>
       </Grid>
-      <Paper
-        style={{
-          width: 0,
-          height: 250,
-        }}
-      />
     </Container>
   );
 }

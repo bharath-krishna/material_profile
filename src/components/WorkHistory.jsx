@@ -10,6 +10,7 @@ import {
   TableRow,
   Toolbar,
   Typography,
+  withStyles,
 } from "@material-ui/core";
 import React from "react";
 
@@ -50,6 +51,24 @@ const rows = [
   ),
 ];
 
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+  },
+}))(TableCell);
+
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.action.hover,
+    },
+  },
+}))(TableRow);
+
 function WorkHistory() {
   const classes = useStyles();
   return (
@@ -60,32 +79,26 @@ function WorkHistory() {
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Period</TableCell>
-              <TableCell>Company</TableCell>
-              <TableCell>Role</TableCell>
-              <TableCell>Tech Specs</TableCell>
+              <StyledTableCell>Period</StyledTableCell>
+              <StyledTableCell>Company</StyledTableCell>
+              <StyledTableCell>Role</StyledTableCell>
+              <StyledTableCell>Tech Specs</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
-              <TableRow key={row.company}>
-                <TableCell component="th" scope="row">
+              <StyledTableRow key={row.company}>
+                <StyledTableCell component="th" scope="row">
                   {row.period}
-                </TableCell>
-                <TableCell>{row.company}</TableCell>
-                <TableCell>{row.role}</TableCell>
-                <TableCell>{row.techspecs}</TableCell>
-              </TableRow>
+                </StyledTableCell>
+                <StyledTableCell>{row.company}</StyledTableCell>
+                <StyledTableCell>{row.role}</StyledTableCell>
+                <StyledTableCell>{row.techspecs}</StyledTableCell>
+              </StyledTableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      <Paper
-        style={{
-          width: 0,
-          height: 250,
-        }}
-      />
     </Container>
   );
 }

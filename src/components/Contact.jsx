@@ -9,12 +9,6 @@ function Contact() {
       <Typography variant="subtitle1" align="left">
         bharath.chakravarthi@gmail.com
       </Typography>
-      <Paper
-        style={{
-          width: 0,
-          height: 250,
-        }}
-      />
     </Container>
   );
 }
