@@ -9,9 +9,19 @@ import {
 } from "@material-ui/core";
 
 const useStyle = makeStyles((theme) => ({
-  title: {
+  root: {
     paddingTop: 200,
-    paddingBottom: 100,
+  },
+  avatar: {
+    position: "absolute",
+    width: 200,
+    height: 200,
+    [theme.breakpoints.down("md")]: { top: 20 },
+    [theme.breakpoints.up("md")]: { left: 42, top: 163 },
+  },
+  name: {
+    paddingTop: 240,
+    paddingBottom: 60,
   },
   subtitle1: {
     color: "white",
@@ -23,27 +33,23 @@ const useStyle = makeStyles((theme) => ({
 function Profile() {
   const classes = useStyle();
   return (
-    <Grid container id="Profile">
-      <Grid item lg={12}>
-        <Avatar
-          src="./bharath.jpeg"
-          style={{
-            position: "absolute",
-            left: 42,
-            top: 163,
-            width: 200,
-            height: 200,
-          }}
-        />
-      </Grid>
-      <Grid item>
-        <Typography variant="h4" display="block" className={classes.title}>
+    <Grid
+      container
+      id="Profile"
+      // className={classes.root}
+      alignContent="center"
+      justify="center"
+    >
+      <Avatar src="./bharath.jpeg" className={classes.avatar} />
+      <Grid item xs={12} md={8}>
+        <Typography variant="h4" display="block" className={classes.name}>
           Bharath Krishna
           <Typography variant="subtitle2">
             Backend Application Engineer
           </Typography>
         </Typography>
-
+      </Grid>
+      <Grid item>
         <Typography variant="h5">Summary</Typography>
         <Typography
           variant="subtitle1"
