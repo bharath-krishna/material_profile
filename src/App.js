@@ -12,12 +12,12 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/top" component={HeadPlate} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/workhistory" component={WorkHistory} />
-        <Route path="/skillset" component={SkillSet} />
-        <Route path="/projects" component={Projects} />
-        <Route path="/contact" component={Contact} />
+        <Route path="/#top" component={HeadPlate} />
+        <Route path="/#profile" component={Profile} />
+        <Route path="/#workhistory" component={WorkHistory} />
+        <Route path="/#skillset" component={SkillSet} />
+        <Route path="/#projects" component={Projects} />
+        <Route path="/#contact" component={Contact} />
       </Switch>
       <div className="App">
         <MainBody />
